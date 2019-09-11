@@ -1,0 +1,4 @@
+type: integer
+minLength: 1
+pattern: '^[0-9]'
+example: '1'

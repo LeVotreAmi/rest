@@ -1,0 +1,3 @@
+type: 'string'
+nullable: false
+description: 'Problem type identifier.'

@@ -1,0 +1,31 @@
+description: 'Response if client sends JSON with invalid syntax.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'invalid_json'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Invalid JSON'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 400
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: 'JSON you have sent has invalid syntax.'
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~

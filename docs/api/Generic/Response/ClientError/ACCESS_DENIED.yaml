@@ -1,0 +1,31 @@
+description: "Response if client tries access any resource without the relevant permissions. For example, it may be other user's profile or something like that."
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'access_denied'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Access Denied'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 403
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: "Currently authenticated user has not any permissions to access this resource."
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~

@@ -1,0 +1,31 @@
+description: 'Response if client tries to delete menu proportion that has meals.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'menu_proportions_has_meals'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Menu Proportion Has Meals'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 403
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: "Can not delete the menu proportion because it has meals."
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~

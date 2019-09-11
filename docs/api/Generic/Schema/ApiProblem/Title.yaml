@@ -1,0 +1,3 @@
+type: 'string'
+nullable: false
+description: 'A short, human-readable summary of the problem type.'

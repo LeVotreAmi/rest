@@ -1,0 +1,34 @@
+description: 'Response if client sends `Authorization` header in invalid format.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'invalid_authorization_header'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Invalid Authorization Header'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 401
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: "Your request missing valid `Authorization` header. Header should look like this: `Authorization: Bearer 80ffc11f-dccf-4b29-a2fc-2ab4588258dd`, where `80ffc11f-dccf-4b29-a2fc-2ab4588258dd` is valid user's access token."
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~
+
+headers:
+  WWW-Authenticate: { $ref: '../../Components.yaml#/headers/WWW-Authenticate' }

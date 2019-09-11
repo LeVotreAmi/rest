@@ -1,0 +1,38 @@
+tags:
+- $ref: '../../Generic/Tag/author.yaml#/name'
+
+summary: 'Create author'
+description: ''
+operationId: 'api_create_author'
+security:
+    userAccessToken: []
+
+requestBody:
+    required: true
+    content:
+        application/json:
+            schema:
+                type: 'object'
+                nullable: false
+                properties:
+                    id: { $ref: '../../Generic/Schema/Entity/Author.yaml#/properties/id' }
+                    name: { $ref: '../../Generic/Schema/Entity/Author.yaml#/properties/name' }
+
+responses:
+    "201":
+        content: ~
+        description: 'Response if author was created successfully.'
+        headers:
+            Location:
+                allOf:
+                - $ref: '../../Generic/Components.yaml#/headers/Location'
+                - schema:
+                      example: { $ref: '../../Generic/Schema/Entity/Author.yaml' }
+
+    "400 (INVALID_JSON)": { $ref: '../../Generic/Components.yaml#/responses/INVALID_JSON' }
+    "400 (VALIDATION_ERROR)": { $ref: '../../Generic/Components.yaml#/responses/VALIDATION_ERROR' }
+
+    "401 (AUTHORIZATION_HEADER_MISSING)": { $ref: '../../Generic/Components.yaml#/responses/AUTHORIZATION_HEADER_MISSING' }
+    "401 (DISABLED_ACCESS_TOKEN)": { $ref: '../../Generic/Components.yaml#/responses/DISABLED_ACCESS_TOKEN' }
+    "401 (INVALID_AUTHORIZATION_HEADER)": { $ref: '../../Generic/Components.yaml#/responses/INVALID_AUTHORIZATION_HEADER' }
+    "401 (UNKNOWN_ACCESS_TOKEN)": { $ref: '../../Generic/Components.yaml#/responses/UNKNOWN_ACCESS_TOKEN' }

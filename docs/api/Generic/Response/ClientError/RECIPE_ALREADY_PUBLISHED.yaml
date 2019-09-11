@@ -1,0 +1,31 @@
+description: 'Response if client tries to publish recipe that already published.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'recipe_already_published'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Recipe Already Published'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 403
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: "Can not publish recipe that already published."
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~

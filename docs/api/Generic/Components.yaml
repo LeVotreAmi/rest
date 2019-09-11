@@ -1,0 +1,20 @@
+responses:
+  # API Problem responses
+  ACCESS_DENIED: { $ref: 'Response/ClientError/ACCESS_DENIED.yaml' }
+  AUTHORIZATION_HEADER_MISSING: { $ref: 'Response/ClientError/AUTHORIZATION_HEADER_MISSING.yaml' }
+  DISABLED_ACCESS_TOKEN: { $ref: 'Response/ClientError/DISABLED_ACCESS_TOKEN.yaml' }
+  INTERNAL_SERVER_ERROR: { $ref: 'Response/ClientError/INTERNAL_SERVER_ERROR.yaml' }
+  INVALID_AUTHORIZATION_HEADER: { $ref: 'Response/ClientError/INVALID_AUTHORIZATION_HEADER.yaml' }
+  INVALID_FILTERS: { $ref: 'Response/ClientError/INVALID_FILTERS.yaml' }
+  INVALID_JSON: { $ref: 'Response/ClientError/INVALID_JSON.yaml' }
+  METHOD_NOT_ALLOWED: { $ref: 'Response/ClientError/METHOD_NOT_ALLOWED.yaml' }
+  NOT_FOUND: { $ref: 'Response/ClientError/NOT_FOUND.yaml' }
+  UNKNOWN_ACCESS_TOKEN: { $ref: 'Response/ClientError/UNKNOWN_ACCESS_TOKEN.yaml' }
+  VALIDATION_ERROR: { $ref: 'Response/ClientError/VALIDATION_ERROR.yaml' }
+
+securitySchemes:
+  userAccessToken: { $ref: '../User/SecurityScheme/userAccessToken.yaml' }
+
+headers:
+  Location: { $ref: 'Header/Location.yaml' }
+  WWW-Authenticate: { $ref: 'Header/WWW-Authenticate.yaml' }

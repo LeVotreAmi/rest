@@ -1,0 +1,35 @@
+description: 'Response if client sends request without `Authorization` header to any endpoint that requires authorization.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'authorization_header_missing'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Authorization Header Missing'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 401
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: "Your request missing `Authorization` header."
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~
+
+
+headers:
+  WWW-Authenticate: { $ref: '../../Components.yaml#/headers/WWW-Authenticate' }

@@ -1,0 +1,31 @@
+description: 'Response if client tries to delete tag used by some entities.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+            - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'ingredient_used_by_recipes'
+
+        title:
+          allOf:
+            - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Can not delete tag'
+
+        status:
+          allOf:
+            - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 403
+
+        detail:
+          allOf:
+            - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: "Can not delete the tag because it is used by some tree or materials."
+
+        instance:
+          allOf:
+            - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~

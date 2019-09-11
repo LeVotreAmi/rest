@@ -1,0 +1,14 @@
+/register:
+    post: { $ref: Operation/api_create_account.yaml }
+
+/login:
+    post: { $ref: Operation/api_login.yaml }
+
+/create/author:
+    post: { $ref: Operation/api_create_author.yaml }
+
+/create/book:
+    post: { $ref: Operation/api_create_book.yaml }
+
+/view:
+    get: { $ref: Operation/api_view_books.yaml }

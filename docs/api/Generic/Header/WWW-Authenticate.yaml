@@ -1,0 +1,6 @@
+description: 'Authorization schema.'
+schema:
+  type: 'string'
+  nullable: false
+  example: 'Bearer token'
+  description: 'Authorization schema.'

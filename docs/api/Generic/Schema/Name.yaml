@@ -1,0 +1,6 @@
+type: 'string'
+nullable: false
+description: 'Name.'
+minLength: 1
+maxLength: 255
+example: 'King'

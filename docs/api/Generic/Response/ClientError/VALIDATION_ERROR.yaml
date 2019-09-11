@@ -1,0 +1,53 @@
+description: 'Response if there are invalid fields in JSON payload.'
+content:
+  application/problem+json:
+    schema:
+      type: 'object'
+      nullable: false
+      properties:
+        type:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Type.yaml'
+          example: 'validation_error'
+
+        title:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Title.yaml'
+          example: 'Validation Error'
+
+        status:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Status.yaml'
+          example: 400
+
+        detail:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Detail.yaml'
+          example: 'There are some invalid fields in your JSON payload. See `violations` field.'
+
+        instance:
+          allOf:
+          - $ref: '../../Schema/ApiProblem/Instance.yaml'
+          example: ~
+
+        violations:
+          type: 'array'
+          nullable: false
+          unqueItems: true
+          minItems: 1
+          description: 'Array with validation errors.'
+          items:
+            type: 'object'
+            nullable: false
+            properties:
+              propertyPath:
+                type: 'string'
+                nullable: false
+                example: 'root.ingredients[0].title'
+                description: 'Path to the property that contains invalid value. It may be an object or simple field (like boolean, string and integer). Keep in mind that in some cases errors may be assigned to `root` property, which means entire JSON object. In the given example `ingredients` is an array which holds object as first value (it has `0` index), which has invalid `title` value.'
+
+              message:
+                type: 'string'
+                nullable: false
+                example: 'String is too long.'
+                description: 'Error message. If one field contains more than 1 error, it will be represented in `violations` array more than once, but these entries will have different `message` field value. Client SHOULD NOT translate validation errors: in the future errors will be reported in different languages based on language passed by client. All errors have a dot at the end of sentence.'

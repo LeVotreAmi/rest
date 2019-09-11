@@ -1,0 +1,14 @@
+type: 'object'
+properties:
+    id:
+        nullable: false
+        description: "Author ID."
+        allOf:
+        - $ref: '../Id.yaml'
+
+    name:
+        nullable: false
+        description: "name for author"
+        example: 'King'
+        allOf:
+        - $ref: '../Name.yaml'
